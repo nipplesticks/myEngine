@@ -165,9 +165,22 @@
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Graphics\Camera\Camera.cpp" />
+    <ClCompile Include="Source\Graphics\RenderEngine.cpp" />
+    <ClCompile Include="Source\Objects\Transform\Transform.cpp" />
+    <ClCompile Include="Source\Renderer.cpp" />
     <ClCompile Include="Source\Window\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Graphics\Camera\Camera.h" />
+    <ClInclude Include="Source\Graphics\Drawable\Drawable.h" />
+    <ClInclude Include="Source\Graphics\GUI\HUDElement.h" />
+    <ClInclude Include="Source\Graphics\Mesh\Mesh.h" />
+    <ClInclude Include="Source\Graphics\RenderEngine.h" />
+    <ClInclude Include="Source\Graphics\Texture\Texture.h" />
+    <ClInclude Include="Source\Objects\Light\Light.h" />
+    <ClInclude Include="Source\Objects\Transform\Transform.h" />
+    <ClInclude Include="Source\Renderer.h" />
     <ClInclude Include="Source\Window\Window.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
