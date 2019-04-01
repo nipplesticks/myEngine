@@ -140,7 +140,8 @@ public:
 	void Close();
 
 	POINT GetMousePosition();
-	void ResetMouse();
+	void MouseToCenter();
+	void SetMousePosition(POINT mousePos, BOOL windowRelative = true);
 
 private:
 	HWND	m_hwnd;

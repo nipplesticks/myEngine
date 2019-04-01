@@ -109,7 +109,7 @@ POINT Window::GetMousePosition()
 
 }
 
-void Window::ResetMouse()
+void Window::MouseToCenter()
 {
 	POINT p;
 
@@ -118,6 +118,14 @@ void Window::ResetMouse()
 
 	ClientToScreen(m_hwnd, &p);
 	SetCursorPos(p.x, p.y);
+}
+
+void Window::SetMousePosition(POINT mousePos, BOOL windowRelative)
+{
+	if (windowRelative)
+		ClientToScreen(m_hwnd, &mousePos);
+
+	SetCursorPos(mousePos.x, mousePos.y);
 }
 
 LRESULT Window::_WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)

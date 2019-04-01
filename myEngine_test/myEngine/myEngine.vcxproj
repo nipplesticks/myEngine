@@ -114,9 +114,10 @@
     <Lib>
       <OutputFile>$(ProjectDir)Lib\$(TargetName)_dbg$(TargetExt)</OutputFile>
     </Lib>
-    <PostBuildEvent>
+    <PostBuildEvent />
+    <PreBuildEvent>
       <Command>Xcopy $(ProjectDir)Source\*.h $(ProjectDir)Inc\myEngine /s /e /y</Command>
-    </PostBuildEvent>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -158,9 +159,10 @@
     <Lib>
       <OutputFile>$(ProjectDir)Lib\$(TargetName)$(TargetExt)</OutputFile>
     </Lib>
-    <PostBuildEvent>
+    <PostBuildEvent />
+    <PreBuildEvent>
       <Command>Xcopy $(ProjectDir)Source\*.h $(ProjectDir)Inc\myEngine /s /e /y</Command>
-    </PostBuildEvent>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Source\Window\Window.cpp" />
