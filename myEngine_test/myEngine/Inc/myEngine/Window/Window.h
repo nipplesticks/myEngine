@@ -129,6 +129,7 @@ public:
 	void SetWindowTitle(const std::string & windowTitle);
 
 	POINT GetWindowSize() const;
+	const POINT & GetResolutionSize() const;
 
 	BOOL IsKeyPressed(int key);
 	BOOL IsMousePressed(int button);
@@ -147,6 +148,7 @@ private:
 	HWND	m_hwnd;
 	UINT	m_height;
 	UINT	m_width;
+	POINT	m_resolution;
 	BOOL	m_fullscreen;
 	BOOL	m_isOpen;
 	BOOL	m_creationError;

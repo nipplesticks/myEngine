@@ -166,16 +166,21 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Source\Graphics\Camera\Camera.cpp" />
+    <ClCompile Include="Source\Graphics\Fence\Fence.cpp" />
+    <ClCompile Include="Source\Graphics\Mesh\Mesh.cpp" />
     <ClCompile Include="Source\Graphics\RenderEngine.cpp" />
     <ClCompile Include="Source\Objects\Transform\Transform.cpp" />
     <ClCompile Include="Source\Renderer.cpp" />
     <ClCompile Include="Source\Window\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Graphics\Fence\Fence.h" />
+    <ClInclude Include="Source\Graphics\GraphicsExtern.h" />
     <ClInclude Include="Source\Graphics\Camera\Camera.h" />
     <ClInclude Include="Source\Graphics\Drawable\Drawable.h" />
     <ClInclude Include="Source\Graphics\GUI\HUDElement.h" />
     <ClInclude Include="Source\Graphics\Mesh\Mesh.h" />
+    <ClInclude Include="Source\Graphics\Mesh\Skeleton.h" />
     <ClInclude Include="Source\Graphics\RenderEngine.h" />
     <ClInclude Include="Source\Graphics\Texture\Texture.h" />
     <ClInclude Include="Source\Objects\Light\Light.h" />

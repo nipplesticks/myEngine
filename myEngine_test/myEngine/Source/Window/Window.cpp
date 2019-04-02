@@ -5,6 +5,8 @@ Window::Window()
 	m_hwnd = NULL;
 	m_height = 0;
 	m_width = 0;
+	m_resolution.x = 0;
+	m_resolution.y = 0;
 	m_fullscreen = 0;
 	m_isOpen = FALSE;
 	m_creationError = FALSE;
@@ -32,17 +34,12 @@ BOOL Window::Create(HINSTANCE hInstance, INT ShowWnd, UINT width, UINT height, B
 	m_width = width;
 	m_height = height;
 
+	m_resolution.x = m_width;
+	m_resolution.y = m_height;
 
 	m_windowThread = std::thread(&Window::_create, this, hInstance, ShowWnd);
 
 	while (m_creationError == FALSE && m_isOpen == FALSE);
-
-
-	
-
-	
-
-	
 
 	return m_isOpen;
 }
@@ -64,6 +61,11 @@ POINT Window::GetWindowSize() const
 	p.x = m_width;
 	p.y = m_height;
 	return p;
+}
+
+const POINT & Window::GetResolutionSize() const
+{
+	return m_resolution;
 }
 
 BOOL Window::IsKeyPressed(int key)
@@ -93,8 +95,8 @@ void Window::Close()
 	{
 		isclosed = true;
 		m_isOpen = FALSE;
-		while (!m_windowThread.joinable());
-		m_windowThread.join();
+		if (m_windowThread.get_id() != std::thread::id())
+			m_windowThread.join();
 		DestroyWindow(m_hwnd);
 	}
 }

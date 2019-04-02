@@ -11,9 +11,7 @@ Renderer::Renderer()
 
 Renderer::~Renderer()
 {
-	m_windowPtr->Close();
-	m_renderEnginePtr->ClearGPU();
-	m_renderEnginePtr->Release();
+	
 }
 
 bool Renderer::Init(HINSTANCE hInstance, UINT width, UINT height, BOOL fullscreen, const std::string & windowTitle, const std::string & windowName)
@@ -39,6 +37,18 @@ void Renderer::Clear()
 void Renderer::Flush()
 {
 	m_renderEnginePtr->Flush();
+}
+
+void Renderer::Terminate()
+{
+	m_windowPtr->Close();
+}
+
+void Renderer::Release()
+{
+	m_windowPtr->Close();
+	m_renderEnginePtr->ClearGPU();
+	m_renderEnginePtr->Release();
 }
 
 bool Renderer::IsRunning() const

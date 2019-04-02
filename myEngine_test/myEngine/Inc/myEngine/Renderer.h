@@ -17,6 +17,10 @@ public:
 	void Clear();
 	void Flush();
 
+	void Terminate();
+
+	void Release();
+
 	bool IsRunning() const;
 private:
 	Window * m_windowPtr = nullptr;

@@ -1,21 +1,25 @@
-#include <windows.h>
-
+#include <myEngine/Renderer.h>
 #include <myEngine/Window/Window.h>
 
 int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLine, int nCmdShow)
 {
-	Window * wnd = Window::GetInstance();
+	Renderer renderer;
+	renderer.Init(hInstance, 1280, 720);
 
-	wnd->Create(hInstance, nCmdShow, 1280, 720, NULL);
 
-	int counter = 0;
-
-	while (wnd->IsOpen())
+	while (renderer.IsRunning())
 	{
-		if (wnd->IsKeyPressed(Input::ESCAPE))
-			wnd->Close();
+		renderer.Clear();
+
+		if (Window::GetInstance()->IsKeyPressed(Input::ESCAPE))
+		{
+			renderer.Terminate();
+		}
+
+		renderer.Flush();
 	}
 
+	renderer.Release();
 
 	return 0;
 }
